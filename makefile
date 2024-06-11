@@ -1,6 +1,16 @@
 # Default target
 default: show_makefile
 
+setup:
+	python3 -m venv env
+	. env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
+
+test:
+	. env/bin/activate; pytest
+
+lint:
+	. env/bin/activate; pylint tokenizer.py
+
 # Job to print the content of the Makefile
 show_makefile:
 	cat makefile
