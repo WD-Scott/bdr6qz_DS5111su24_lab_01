@@ -38,3 +38,8 @@ total_words:           # Count total number of words in all books
 # Job to count words in The Raven
 raven_word_count:      # Count the number of words in The Raven
 	@wc -w books/poe_17192.txt
+
+.PHONY: test
+# Job to run all of the tests in the tests directory
+test:
+	pytest tests -vv

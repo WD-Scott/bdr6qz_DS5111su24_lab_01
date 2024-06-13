@@ -27,6 +27,7 @@ Functions:
 
 import sys
 import os
+assert os.path.isdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'books')), "The `books` directory does not yet exist. You must run `make get_texts` to first download the books"
 import warnings
 from collections import Counter
 import pytest
