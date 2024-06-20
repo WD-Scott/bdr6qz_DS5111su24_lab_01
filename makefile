@@ -42,4 +42,4 @@ raven_word_count:      # Count the number of words in The Raven
 .PHONY: test
 # Job to run all of the tests in the tests directory
 test:
-	pytest tests -vv
+	pytest tests -vvx
