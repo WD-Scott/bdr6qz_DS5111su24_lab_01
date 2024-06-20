@@ -4,33 +4,39 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      run_non_integrations:
-        description: 'Toggle to run tests without the integration marker'
-        default: false
+      testing:
+        description: 'Select whether to run tests without the integration marker'
         required: true
-	type: choice
-	options:
-	  - true
-	  - false
+        type: choice
+        options:
+        - non-integration
+        - integration
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.11"]
-
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install dependencies
         run: |
           make setup
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test NON integration marked tests with pytest
+
+      - name: Run non-integration tests
+        if: ${{ github.event.inputs.testing == 'non-integration' }}
         run: |
-          if [ "${{ github.event.inputs.run_non_integrations }} run_non_integrations" == "true" ]; then make test; else make test_integration; fi
+          make test_non
+
+      - name: Run integration tests
+        if: ${{ github.event.inputs.testing == 'integration' }}
+        run: |
+          make test_integration
