@@ -7,10 +7,11 @@ on:
       testing:
         description: 'Select whether to run tests without the integration marker'
         required: true
+        default: "non-integration"
         type: choice
         options:
-        - non-integration
-        - integration
+          - "non-integration"
+          - "integration"
 
 jobs:
   build:
