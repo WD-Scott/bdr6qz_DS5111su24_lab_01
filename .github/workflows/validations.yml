@@ -29,8 +29,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test NON integration marked tests with pytest
         run: |
-          if [ "${{ github.event.inputs.run_non_integrations }}" == "true" ]; then
-            make test
-          else
-            make test_integration
-          fi
+          if [ "${{ github.event.inputs.run_non_integrations }}" == "true" ]; then make test; else make test_integration; fi
