@@ -40,6 +40,11 @@ raven_word_count:      # Count the number of words in The Raven
 	@wc -w books/poe_17192.txt
 
 .PHONY: test
-# Job to run all of the tests in the tests directory
+# Job to run only tests without the integration marker in the tests directory
 test:
-	pytest tests -vvx
+	 pytest -m "not integration" tests -vvx
+
+.PHONY: test_integration
+# Job to run only tests with the integration marker in the tests directory
+test_integration:
+	 pytest -m "integration" tests -vvx
