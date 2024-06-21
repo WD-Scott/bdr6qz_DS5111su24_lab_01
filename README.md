@@ -10,6 +10,8 @@ Wyatt Scott's (bdr6qz) repo for DS5111 Labs
 
 ### License
 
+### pytest.ini
+
 <details>
 <summary><h3 style="font-size: 14px;">tokenizer.py</h3></summary>
 
