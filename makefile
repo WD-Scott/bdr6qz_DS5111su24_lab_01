@@ -10,11 +10,11 @@ setup:
 
 # Job to download books by Edgar Allan Poe
 get_texts:             # Create books directory and download texts
-        @mkdir -p books
-        @bash -c 'book_ids=("17192" "932" "1063" "10031" "14082"); \
-        for id in $${book_ids[@]}; do \
-                wget -O "books/poe_$${id}.txt" "https://www.gutenberg.org/ebooks/$${id}.txt.utf-8"; \
-        done'
+	@mkdir -p books
+	@bash -c 'book_ids=("17192" "932" "1063" "10031" "14082"); \
+	for id in $${book_ids[@]}; do \
+		wget -O "books/poe_$${id}.txt" "https://www.gutenberg.org/ebooks/$${id}.txt.utf-8"; \
+	done'
 	
 # Job to count lines in The Raven
 raven_line_count:      # Count number of lines in The Raven
@@ -42,9 +42,9 @@ raven_word_count:      # Count the number of words in The Raven
 .PHONY: test
 # Job to run only tests without the integration marker in the tests directory
 test:
-	 pytest -m "not integration" tests -vvx
+	pytest -m "not integration" tests -vvx
 
 .PHONY: test_integration
 # Job to run only tests with the integration marker in the tests directory
 test_integration:
-	 pytest -m "integration" tests -vvx
+	pytest -m "integration" tests -vvx
