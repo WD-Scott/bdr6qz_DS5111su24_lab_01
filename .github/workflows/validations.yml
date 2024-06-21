@@ -35,7 +35,7 @@ jobs:
       - name: Run non-integration tests
         if: ${{ github.event.inputs.testing == 'non-integration' }}
         run: |
-          make test_non
+          make test
 
       - name: Run integration tests
         if: ${{ github.event.inputs.testing == 'integration' }}
