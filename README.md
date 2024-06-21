@@ -93,7 +93,6 @@ This Python module file contains the functions and objects available in the drop
     
 This directory contains Python module files for testing the functions in `tokenizer.py`.
 
-
 #### - `test_count_words.py`
 
 <details>
@@ -181,7 +180,22 @@ This directory contains Python module files for testing the functions in `tokeni
 
 - `test_corbeau_clean_text()`:
 
-  Tests `clean_text` against snippet from Le Corbeau
+  Tests `clean_text` against snippet from Le Corbeau.
+</details>
+
+#### - `test_complicated.py`
+
+<details>
+<summary><strong>Click here to see the functions in test_complicated.py</strong></summary>
+
+- `test_get_texts()`:
+
+  Tests the `make get_texts` job from the makefile.
+  
+- `test_tokenizer_count_raven()`:
+
+  Tests the main functions from tokenizer.py together.
+
 </details>
 </details>
 </details>
