@@ -37,11 +37,11 @@ jobs:
           make get_texts
 
       - name: Run non-integration tests
-        #if: ${{ github.event.inputs.testing == 'non-integration' }}
+        if: ${{ github.event.inputs.testing == 'non-integration' }}
         run: |
           make test
 
       - name: Run integration tests
-        #if: ${{ github.event.inputs.testing == 'integration' }}
+        if: ${{ github.event.inputs.testing == 'integration' }}
         run: |
           make test_integration
