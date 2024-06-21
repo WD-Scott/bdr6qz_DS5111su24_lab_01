@@ -42,9 +42,9 @@ raven_word_count:      # Count the number of words in The Raven
 .PHONY: test
 # Job to run only tests without the integration marker in the tests directory
 test:
-	pytest -m "not integration" tests -vvx
+	pytest -m "not integration" tests -vvx --continue-on-collection-errors
 
 .PHONY: test_integration
 # Job to run only tests with the integration marker in the tests directory
 test_integration:
-	pytest -m "integration" tests -vvx
+	pytest -m "integration" tests -vvx --continue-on-collection-errors
