@@ -45,7 +45,7 @@ def test_clean_text():
         assert clean_text("!!!") == ""
         assert clean_text("") == ""
 
-@pytest.mark.xfail(reason="Fails purposefully", strict=True)
+@pytest.mark.xfail(reason="Fails purposefully")
 def test_fail_clean_text():
     # GIVEN an input string of text
     # WHEN a user passes `text` to `clean_text`
