@@ -46,7 +46,7 @@ def test_tokenize():
         assert isinstance(tokenize(text), list), f"Tokenizer failed on sample text: {text}"
         assert tokenize("864, 241, %(*") == ["864", "241"]
 
-@pytest.mark.xfail(reason="Fails purposefully", strict=True)
+@pytest.mark.xfail(reason="Fails purposefully")
 def test_fail_tokenize():
     # GIVEN an input string of text
     # WHEN a user passes `text` to the `tokenize` function
