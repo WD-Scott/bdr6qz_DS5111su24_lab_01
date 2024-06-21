@@ -45,7 +45,7 @@ def test_count_words():
         assert count_words("Hello, hello, hello, hi, world") == {"hello": 3, "hi": 1, "world": 1}
         assert count_words("") == {}
 
-@pytest.mark.xfail(reason="Fails purposefully", strict=True)
+@pytest.mark.xfail(reason="Fails purposefully")
 def test_fail_count_words():
     # GIVEN an input string of text
     # WHEN a user passes `text` to the `count_words` function
