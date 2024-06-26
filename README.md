@@ -6,18 +6,39 @@ Wyatt Scott's (bdr6qz) repo for DS5111 Labs
 <details>
 <summary><h1 style="font-size: 16px;">Manifest</h1></summary>
 
-### makefile
+<details>
+<summary><h3 style="font-size: 16px;">Misc. Files</h3></summary>
+
+### LICENSE
 
 ### README.md
 
-### License
+### makefile
+
+### pyproject.toml
 
 ### pytest.ini
 
-<details>
-<summary><h3 style="font-size: 14px;">tokenizer.py</h3></summary>
+### requirements.txt
 
-This Python module file contains the functions and objects available in the dropdown menus below.
+</details>
+
+<details>
+<summary><h3 style="font-size: 14px;">src</h3></summary>
+
+This directory includes the source code for the `bdr6qz` Python package.
+
+<details>
+<summary><h4 style="font-size: 14px;">__init__.py</h4></summary>
+
+This Python file includes the initializaiton code for the `bdr6qz` package.
+
+</details>
+
+<details>
+<summary><h4 style="font-size: 14px;">tokenizer.py</h4></summary>
+
+This Pyhton file includes several functions and objects included in the dropdown menus below.
 
 <details>
 <summary><strong>Click here to see the functions in tokenizer.py</strong></summary>
@@ -89,11 +110,13 @@ This Python module file contains the functions and objects available in the drop
 - test_ids
 
   List of names in test cases for cleaner output of parameterized functions.
+
+</details>
 </details>
 </details>
 
 <details>
-<summary><h3 style="font-size: 14px;">Tests.py</h3></summary>
+<summary><h3 style="font-size: 14px;">tests</h3></summary>
     
 This directory contains Python module files for testing the functions in `tokenizer.py`.
 
@@ -212,7 +235,7 @@ This directory contains Python module files for testing the functions in `tokeni
 To get started, clone this repo and in the Command Line run:
 
 ```
-make setup
+make update
 ```
 
 This will create a virtual environment with Python 3 and install the required packages stored in `requirements.txt`.
