@@ -18,8 +18,9 @@ import os
 import string
 from collections import Counter
 import pytest
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from tokenizer import (clean_text, tokenize, count_words, read_file, books_dir, books_paths)
+books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from bdr6qz import (clean_text, tokenize, count_words, read_file, books_dir, books_paths)
 
 @pytest.mark.integration
 def test_get_texts():

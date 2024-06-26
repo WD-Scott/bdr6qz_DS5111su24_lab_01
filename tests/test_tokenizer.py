@@ -27,13 +27,14 @@ Functions:
 
 import sys
 import os
-assert os.path.isdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'books')), "The `books` directory does not yet exist. You must run `make get_texts` to first download the books"
+import bdr6qz as pkg
 import subprocess
 import string
 import warnings
 import pytest
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from tokenizer import (tokenize, clean_text, text, text_list, test_cases, test_ids, text_le_corbeau, run_bash, TheRaven, FalloftheHouseofUsher, CaskofAmontillado, ThePoems)
+books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from bdr6qz import (tokenize, clean_text, text, text_list, test_cases, test_ids, text_le_corbeau, run_bash, TheRaven, FalloftheHouseofUsher, CaskofAmontillado, ThePoems)
 
 def test_tokenize():
     # GIVEN an input string of text

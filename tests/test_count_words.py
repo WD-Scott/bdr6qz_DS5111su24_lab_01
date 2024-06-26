@@ -27,12 +27,13 @@ Functions:
 
 import sys
 import os
-assert os.path.isdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'books')), "The `books` directory does not yet exist. You must run `make get_texts` to first download the books"
+import bdr6qz as pkg
 import warnings
 from collections import Counter
 import pytest
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from tokenizer import (count_words, tokenize, run_bash, text, test_cases, test_ids, text_le_corbeau, TheRaven, FalloftheHouseofUsher, CaskofAmontillado, ThePoems, text_dict)
+books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from bdr6qz import (count_words, tokenize, run_bash, text, test_cases, test_ids, text_le_corbeau, TheRaven, FalloftheHouseofUsher, CaskofAmontillado, ThePoems, text_dict)
 
 def test_count_words():
     # GIVEN an input string of text

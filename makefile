@@ -4,9 +4,11 @@ default:
 cat_makefile:          # this simply cats the makefile
 	@cat makefile
 
-setup:
-	python3 -m venv env
-	. env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
+env:
+	python3 -m venv env; . env/bin/activate ; pip install --upgrade pip
+
+update: env
+	. env/bin/activate; pip install -r requirements.txt
 
 # Job to download books by Edgar Allan Poe
 get_texts:             # Create books directory and download texts
