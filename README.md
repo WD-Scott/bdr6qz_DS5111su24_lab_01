@@ -228,7 +228,7 @@ This directory contains Python module files for testing the functions in `tokeni
 </details>
 
 <details>
-<summary><h1 style="font-size: 16px;">Minimal Reproducible Code</h1></summary>
+<summary><h1 style="font-size: 16px;">Installing and getting started</h1></summary>
 
 ### Getting Started:
 
