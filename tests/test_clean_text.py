@@ -35,8 +35,6 @@ books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 from bdr6qz import (clean_text, run_bash, read_file, text, text_le_corbeau)
 
-#books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'books'))
-
 books_paths = {
     'TheRaven': os.path.join(books_dir, 'poe_17192.txt'),
     'FalloftheHouseofUsher': os.path.join(books_dir, 'poe_932.txt'),

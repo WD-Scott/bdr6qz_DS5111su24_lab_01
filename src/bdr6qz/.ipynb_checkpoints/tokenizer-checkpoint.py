@@ -31,30 +31,6 @@ Objects
 
 - text_list
     List of `text` testing sentence to compare with `tokenize` output.
-
-- books_dir
-    The path for the `books` directory (available only after a user runs `make get_the_books`).
-
-- books_paths
-    Dictionary of the necessary book filepaths inside of `books_dir`.
-
-- TheRaven
-    The text of The Raven.
-    
-- FalloftheHouseofUsher
-    The text of Fall of the House of Usher.
-
-- CaskofAmontillado
-    The text of Cask of Amontillado.
-
-- ThePoems
-    The text of The Poems.
-
-- test_cases
-    List of test files for testing the functions against all English texts.
-
-- test_ids
-    List of names in test cases for cleaner output of parameterized functions.
 '''
 
 import logging
@@ -62,8 +38,6 @@ import string
 import os
 import subprocess
 from collections import Counter
-
-logging.basicConfig(level=logging.DEBUG, format='%(levelname)s:%(message)s')
 
 text = "But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour."
 
@@ -99,10 +73,8 @@ def clean_text(text):
     AssertionError
         If the input is not a string.
     """
-    assert isinstance(text, str), "Input must be a string"
-    logging.debug("Cleaning text: %s", text)
+    assert isinstance(text, str), f"Input must be a string, you inserted {type(text)}"
     cleaned_text = text.translate(str.maketrans('', '', string.punctuation)).lower()
-    logging.debug("Cleaned text: %s", cleaned_text)
     return cleaned_text
 
 def tokenize(text):
@@ -124,10 +96,8 @@ def tokenize(text):
     AssertionError
         If the input is not a string.
     """
-    assert isinstance(text, str), "Input must be a string"
-    logging.debug("Tokenizing text: %s", text)
+    assert isinstance(text, str), f"Input must be a string, you inserted {type(text)}"
     tokens = clean_text(text).split()
-    logging.debug("Tokens: %s", tokens)
     return tokens
 
 def count_words(text):
@@ -149,11 +119,9 @@ def count_words(text):
     AssertionError
         If the input is not a string.
     """
-    assert isinstance(text, str), "Input must be a string"
-    logging.debug("Counting words in text: %s", text)
+    assert isinstance(text, str), f"Input must be a string, you inserted {type(text)}"
     tokens = tokenize(text)
     word_counts = Counter(tokens)
-    logging.debug("Word counts: %s", word_counts)
     return word_counts
 
 def run_bash(command):
@@ -200,26 +168,3 @@ def read_file(file_path):
     '''
     with open(file_path, 'r') as file:
         return file.read()
-
-# books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'books'))
-
-# books_paths = {
-#     'TheRaven': os.path.join(books_dir, 'poe_17192.txt'),
-#     'FalloftheHouseofUsher': os.path.join(books_dir, 'poe_932.txt'),
-#     'CaskofAmontillado': os.path.join(books_dir, 'poe_1063.txt'),
-#     'ThePoems': os.path.join(books_dir, 'poe_10031.txt')
-# }
-
-# TheRaven = read_file(books_paths['TheRaven'])
-# FalloftheHouseofUsher = read_file(books_paths['FalloftheHouseofUsher'])
-# CaskofAmontillado = read_file(books_paths['CaskofAmontillado'])
-# ThePoems = read_file(books_paths['ThePoems'])
-
-# test_cases = [
-#     ("The Raven", TheRaven),
-#     ("Fall of the House of Usher", FalloftheHouseofUsher),
-#     ("Cask of Amontillado", CaskofAmontillado),
-#     ("The Poems", ThePoems)
-# ]
-
-# test_ids = [name for name, _ in test_cases]
