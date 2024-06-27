@@ -41,7 +41,7 @@ This Python file includes the initializaiton code for the `bdr6qz` package.
 This Pyhton file includes several functions and objects included in the dropdown menus below.
 
 <details>
-<summary><strong>Click here to see the functions in tokenizer.py</strong></summary>
+<summary><strong>Functions</strong></summary>
 
 - `clean_text(text)`:
 
@@ -65,7 +65,7 @@ This Pyhton file includes several functions and objects included in the dropdown
 </details>
 
 <details>
-<summary><strong>Click here to see the objects in tokenizer.py</strong></summary>
+<summary><strong>Objects</strong></summary>
 
 - text
 
@@ -228,7 +228,7 @@ This directory contains Python module files for testing the functions in `tokeni
 </details>
 
 <details>
-<summary><h1 style="font-size: 16px;">Minimal Reproducible Code</h1></summary>
+<summary><h1 style="font-size: 16px;">Install and getting started</h1></summary>
 
 ### Getting Started:
 
