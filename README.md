@@ -54,41 +54,10 @@ This Python module file contains the functions and objects available in the drop
 
   Dictionary of `text` testing sentence to compare with `count_words` output.
 
-- test_list
+- text_list
 
   List of `text` testing sentence to compare with `tokenize` output.
 
-- books_dir
-
-  The path for the `books` directory (available only after a user runs `make get_texts`).
-
-- books_paths
-
-  Dictionary of the necessary book filepaths inside of `books_dir`.
-
-- TheRaven
-
-  The text of The Raven.
-    
-- FalloftheHouseofUsher
-
-  The text of Fall of the House of Usher.
-
-- CaskofAmontillado
-
-  The text of Cask of Amontillado.
-
-- ThePoems
-
-  The text of The Poems.
-
-- test_cases
-
-  List of test files for testing the functions against all English texts.
-
-- test_ids
-
-  List of names in test cases for cleaner output of parameterized functions.
 </details>
 </details>
 
