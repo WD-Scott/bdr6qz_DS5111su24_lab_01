@@ -33,7 +33,28 @@ from collections import Counter
 import pytest
 books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
-from bdr6qz import (count_words, tokenize, run_bash, text, test_cases, test_ids, text_le_corbeau, TheRaven, FalloftheHouseofUsher, CaskofAmontillado, ThePoems, text_dict)
+from bdr6qz import (count_words, tokenize, run_bash, text, text_le_corbeau, text_dict, read_file)
+
+books_paths = {
+    'TheRaven': os.path.join(books_dir, 'poe_17192.txt'),
+    'FalloftheHouseofUsher': os.path.join(books_dir, 'poe_932.txt'),
+    'CaskofAmontillado': os.path.join(books_dir, 'poe_1063.txt'),
+    'ThePoems': os.path.join(books_dir, 'poe_10031.txt')
+}
+
+TheRaven = read_file(books_paths['TheRaven'])
+FalloftheHouseofUsher = read_file(books_paths['FalloftheHouseofUsher'])
+CaskofAmontillado = read_file(books_paths['CaskofAmontillado'])
+ThePoems = read_file(books_paths['ThePoems'])
+
+test_cases = [
+    ("The Raven", TheRaven),
+    ("Fall of the House of Usher", FalloftheHouseofUsher),
+    ("Cask of Amontillado", CaskofAmontillado),
+    ("The Poems", ThePoems)
+]
+
+test_ids = [name for name, _ in test_cases]
 
 def test_count_words():
     # GIVEN an input string of text

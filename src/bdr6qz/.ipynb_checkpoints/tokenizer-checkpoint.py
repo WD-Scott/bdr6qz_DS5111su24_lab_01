@@ -201,25 +201,25 @@ def read_file(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
-books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'books'))
+# books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'books'))
 
-books_paths = {
-    'TheRaven': os.path.join(books_dir, 'poe_17192.txt'),
-    'FalloftheHouseofUsher': os.path.join(books_dir, 'poe_932.txt'),
-    'CaskofAmontillado': os.path.join(books_dir, 'poe_1063.txt'),
-    'ThePoems': os.path.join(books_dir, 'poe_10031.txt')
-}
+# books_paths = {
+#     'TheRaven': os.path.join(books_dir, 'poe_17192.txt'),
+#     'FalloftheHouseofUsher': os.path.join(books_dir, 'poe_932.txt'),
+#     'CaskofAmontillado': os.path.join(books_dir, 'poe_1063.txt'),
+#     'ThePoems': os.path.join(books_dir, 'poe_10031.txt')
+# }
 
-TheRaven = read_file(books_paths['TheRaven'])
-FalloftheHouseofUsher = read_file(books_paths['FalloftheHouseofUsher'])
-CaskofAmontillado = read_file(books_paths['CaskofAmontillado'])
-ThePoems = read_file(books_paths['ThePoems'])
+# TheRaven = read_file(books_paths['TheRaven'])
+# FalloftheHouseofUsher = read_file(books_paths['FalloftheHouseofUsher'])
+# CaskofAmontillado = read_file(books_paths['CaskofAmontillado'])
+# ThePoems = read_file(books_paths['ThePoems'])
 
-test_cases = [
-    ("The Raven", TheRaven),
-    ("Fall of the House of Usher", FalloftheHouseofUsher),
-    ("Cask of Amontillado", CaskofAmontillado),
-    ("The Poems", ThePoems)
-]
+# test_cases = [
+#     ("The Raven", TheRaven),
+#     ("Fall of the House of Usher", FalloftheHouseofUsher),
+#     ("Cask of Amontillado", CaskofAmontillado),
+#     ("The Poems", ThePoems)
+# ]
 
-test_ids = [name for name, _ in test_cases]
+# test_ids = [name for name, _ in test_cases]
