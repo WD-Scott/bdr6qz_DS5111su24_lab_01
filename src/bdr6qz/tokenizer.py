@@ -33,9 +33,7 @@ Objects
     List of `text` testing sentence to compare with `tokenize` output.
 '''
 
-import logging
 import string
-import os
 import subprocess
 from collections import Counter
 
@@ -54,13 +52,13 @@ text_list = ["but", "the", "raven", "sitting", "lonely", "on",
              "one", "word", "as", "if", "his", "soul", "in",
              "that", "one", "word", "he", "did", "outpour"]
 
-def clean_text(text):
+def clean_text(input_text):
     """
     Remove punctuation from the input string and convert it to lowercase.
 
     Params
     ----------
-    text : str
+    input_text : str
         The input string.
  
     Returns
@@ -73,17 +71,17 @@ def clean_text(text):
     AssertionError
         If the input is not a string.
     """
-    assert isinstance(text, str), f"Input must be a string, you inserted {type(text)}"
-    cleaned_text = text.translate(str.maketrans('', '', string.punctuation)).lower()
+    assert isinstance(input_text, str), f"Input must be a string, you inserted {type(input_text)}"
+    cleaned_text = input_text.translate(str.maketrans('', '', string.punctuation)).lower()
     return cleaned_text
 
-def tokenize(text):
+def tokenize(input_text):
     """
     Split the input string into a list of words.
 
     Params
     ----------
-    text : str
+    input_text : str
         The input string.
 
     Returns
@@ -96,17 +94,17 @@ def tokenize(text):
     AssertionError
         If the input is not a string.
     """
-    assert isinstance(text, str), f"Input must be a string, you inserted {type(text)}"
-    tokens = clean_text(text).split()
+    assert isinstance(input_text, str), f"Input must be a string, you inserted {type(input_text)}"
+    tokens = clean_text(input_text).split()
     return tokens
 
-def count_words(text):
+def count_words(input_text):
     """
     Count the frequency of each word in the input string.
     
     Params
     ----------
-    text : str
+    input_text : str
         The input string.
         
     Returns
@@ -119,8 +117,8 @@ def count_words(text):
     AssertionError
         If the input is not a string.
     """
-    assert isinstance(text, str), f"Input must be a string, you inserted {type(text)}"
-    tokens = tokenize(text)
+    assert isinstance(input_text, str), f"Input must be a string, you inserted {type(input_text)}"
+    tokens = tokenize(input_text)
     word_counts = Counter(tokens)
     return word_counts
 

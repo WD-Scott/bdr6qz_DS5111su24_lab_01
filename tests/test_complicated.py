@@ -17,11 +17,10 @@ import subprocess
 import os
 import string
 from collections import Counter
+from bdr6qz import (clean_text, tokenize, count_words, read_file)
 import pytest
 books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
-from bdr6qz import (clean_text, tokenize, count_words, read_file)
-
 
 books_paths = {
     'TheRaven': os.path.join(books_dir, 'poe_17192.txt'),
@@ -70,10 +69,10 @@ def test_tokenizer_count_raven():
     # GIVEN the text of The Raven by Edgar Allan Poe
     # WHEN `clean_text`, `tokenize`, and `count_words` are called on TheRaven
     # THEN check return of each function call against the expected returns
-    TheRaven = read_file(books_paths['TheRaven'])
-    assert isinstance(TheRaven, str), "TheRaven should be a string"
-    raven_cleaned_actual = clean_text(TheRaven)
-    raven_cleaned_expected = TheRaven.translate(str.maketrans('', '', string.punctuation)).lower()
+    The_Raven = read_file(books_paths['TheRaven'])
+    assert isinstance(The_Raven, str), "TheRaven should be a string"
+    raven_cleaned_actual = clean_text(The_Raven)
+    raven_cleaned_expected = The_Raven.translate(str.maketrans('', '', string.punctuation)).lower()
     assert raven_cleaned_actual == raven_cleaned_expected
 
     raven_tokenize_actual = tokenize(raven_cleaned_actual)

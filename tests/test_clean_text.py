@@ -27,13 +27,12 @@ Functions:
 
 import sys
 import os
-import bdr6qz as pkg
 import string
 import warnings
 import pytest
+from bdr6qz import (clean_text, run_bash, read_file, text, text_le_corbeau)
 books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
-from bdr6qz import (clean_text, run_bash, read_file, text, text_le_corbeau)
 
 books_paths = {
     'TheRaven': os.path.join(books_dir, 'poe_17192.txt'),
@@ -57,9 +56,18 @@ test_cases = [
 test_ids = [name for name, _ in test_cases]
 
 def test_clean_text():
-    # GIVEN an input string of text
-    # WHEN a user passes `text` to `clean_text`
-    # THEN check os and python version, check `clean_text` works as expected (lower case, no punctuation)
+    """
+    Test the `clean_text` function.
+
+    GIVEN an input string of text
+    WHEN a user passes `text` to `clean_text`
+    THEN check OS and Python version, and ensure `clean_text` works as expected (lowercase, no punctuation).
+
+    Warns
+    -----
+    UserWarning
+        If the test is run on a platform other than macOS or Python version other than 3.11.
+    """
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
@@ -69,18 +77,36 @@ def test_clean_text():
 
 @pytest.mark.xfail(reason="Fails purposefully")
 def test_fail_clean_text():
-    # GIVEN an input string of text
-    # WHEN a user passes `text` to `clean_text`
-    # THEN fail purposefully
+    """
+    Test the `clean_text` function with an expected failure.
+
+    GIVEN an input string of text
+    WHEN a user passes `text` to `clean_text`
+    THEN fail purposefully.
+
+    Warns
+    -----
+    UserWarning
+        If the test is run on a platform other than macOS or Python version other than 3.11.
+    """
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
         assert clean_text(text) == "BUT the raven sitting lonely on the placid bust spoke"
 
 def test_bash_clean_text():
-    # GIVEN an input string of text
-    # WHEN a user passes `text` to `clean_text`
-    # THEN check os and python version, check `clean_text` output against equivalent bash command
+    """
+    Test the `clean_text` function against an equivalent bash command.
+
+    GIVEN an input string of text
+    WHEN a user passes `text` to `clean_text`
+    THEN check OS and Python version, and compare `clean_text` output against equivalent bash command.
+
+    Warns
+    -----
+    UserWarning
+        If the test is run on a platform other than macOS or Python version other than 3.11.
+    """
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
@@ -88,29 +114,63 @@ def test_bash_clean_text():
 
 @pytest.mark.skip(reason="Skips purposefully")
 def test_clean_text_skipper():
-    # GIVEN any input
-    # WHEN a user passes the input to `clean_text`
-    # THEN check os and python version, skipped purposefully
+    """
+    Test the `clean_text` function with a purposeful skip.
+
+    GIVEN any input
+    WHEN a user passes the input to `clean_text`
+    THEN check OS and Python version, and skip the test purposefully.
+
+    Warns
+    -----
+    UserWarning
+        If the test is run on a platform other than macOS or Python version other than 3.11.
+    """
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
         assert clean_text(text) == ""
 
-@pytest.mark.parametrize("name, text", test_cases, ids=test_ids)
-def test_all_clean_text(name, text):
-    # GIVEN all English texts as input strings
-    # WHEN a user passes `text` to `clean_text`
-    # THEN check os and python version, check `clean_text` against all English texts
+@pytest.mark.parametrize("name, input_text", test_cases, ids=test_ids)
+def test_all_clean_text(name, input_text):
+    """
+    Test the `clean_text` function against multiple test cases.
+
+    GIVEN all English texts as input strings
+    WHEN a user passes `text` to `clean_text`
+    THEN check OS and Python version, and ensure `clean_text` works correctly for all test cases.
+
+    Parameters
+    ----------
+    name : str
+        The name of the test case.
+    input_text : str
+        The input text for the test case.
+
+    Warns
+    -----
+    UserWarning
+        If the test is run on a platform other than macOS or Python version other than 3.11.
+    """
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        expected_text = text.translate(str.maketrans('', '', string.punctuation)).lower()
-        assert clean_text(text) == expected_text
+        expected_text = input_text.translate(str.maketrans('', '', string.punctuation)).lower()
+        assert clean_text(input_text) == expected_text
 
 def test_corbeau_clean_text():
-    # GIVEN a snippet of text from Le Corbeau
-    # WHEN a user passes `text_le_corbeau` to `clean_text`
-    # THEN check os and python version, check that `clean_text` output matches expected output
+    """
+    Test the `clean_text` function with a snippet of text from Le Corbeau.
+
+    GIVEN a snippet of text from Le Corbeau
+    WHEN a user passes `text_le_corbeau` to `clean_text`
+    THEN check OS and Python version, and ensure `clean_text` output matches the expected output.
+
+    Warns
+    -----
+    UserWarning
+        If the test is run on a platform other than macOS or Python version other than 3.11.
+    """
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
