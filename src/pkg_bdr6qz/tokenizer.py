@@ -119,7 +119,11 @@ def count_words(input_text):
     """
     assert isinstance(input_text, str), f"Input must be a string, you inserted {type(input_text)}"
     tokens = tokenize(input_text)
+    word_counts = {}
+    # for w in tokens:
+    #     word_counts[w] = 1 if w not in word_counts else word_counts[w] + 1
     word_counts = Counter(tokens)
+    
     return word_counts
 
 def run_bash(command):

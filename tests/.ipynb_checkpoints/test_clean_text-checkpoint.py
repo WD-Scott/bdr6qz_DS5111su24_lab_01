@@ -30,7 +30,7 @@ import os
 import string
 import warnings
 import pytest
-from bdr6qz import (clean_text, run_bash, read_file, text, text_le_corbeau)
+from pkg_bdr6qz import (clean_text, run_bash, read_file, text, text_le_corbeau)
 books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 

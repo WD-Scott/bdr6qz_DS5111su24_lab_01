@@ -17,7 +17,7 @@ import subprocess
 import os
 import string
 from collections import Counter
-from bdr6qz import (clean_text, tokenize, count_words, read_file)
+from pkg_bdr6qz import (clean_text, tokenize, count_words, read_file)
 import pytest
 books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
