@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
     steps:
       - uses: actions/checkout@v4
 
@@ -35,13 +35,17 @@ jobs:
       - name: Get texts
         run: |
           make get_texts
+
+      - name: lint
+        run: |
+          make lint   
   
       - name: Run non-integration tests
-        if: ${{ github.event.inputs.testing == 'non-integration' }}
+        #if: ${{ github.event.inputs.testing == 'non-integration' }}
         run: |
           make test
         
       - name: Run integration tests
-        if: ${{ github.event.inputs.testing == 'integration' }}
+        #if: ${{ github.event.inputs.testing == 'integration' }}
         run: |  
           make test_integration

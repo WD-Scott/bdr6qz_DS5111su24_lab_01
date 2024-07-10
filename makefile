@@ -41,12 +41,17 @@ total_words:           # Count total number of words in all books
 raven_word_count:      # Count the number of words in The Raven
 	@wc -w books/poe_17192.txt
 
+.PHONY: lint
+# Job to run pylint
+lint:
+	pylint src/pkg_bdr6qz/tokenizer.py
+
 .PHONY: test
 # Job to run only tests without the integration marker in the tests directory
-test:
+test: lint
 	pytest -m "not integration" tests -vv --continue-on-collection-errors
 
 .PHONY: test_integration
 # Job to run only tests with the integration marker in the tests directory
-test_integration:
+test_integration: lint
 	pytest -m "integration" tests -vv --continue-on-collection-errors

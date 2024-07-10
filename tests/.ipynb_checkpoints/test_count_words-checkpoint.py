@@ -29,7 +29,7 @@ import sys
 import os
 import warnings
 from collections import Counter
-from bdr6qz import (count_words, tokenize, run_bash, text, text_le_corbeau, text_dict, read_file)
+from pkg_bdr6qz import (count_words, tokenize, run_bash, TEXT, TEXT_LE_CORBEAU, text_dict, read_file)
 import pytest
 books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
@@ -71,7 +71,7 @@ def test_count_words():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert count_words(text) == text_dict
+        assert count_words(TEXT) == text_dict
         assert count_words("Hello, hello, hello, hi, world") == {"hello": 3, "hi": 1, "world": 1}
         assert count_words("") == {}
 
@@ -92,7 +92,7 @@ def test_fail_count_words():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert count_words(text) == 5
+        assert count_words(TEXT) == 5
 
 def test_bash_count_words():
     """
@@ -110,11 +110,11 @@ def test_bash_count_words():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        bash_command = f'echo "{text}" | tr -d "[:punct:]" | tr "[:upper:]" "[:lower:]" | awk \'{{ for(i=1;i<=NF;i++) a[$i]++ }} END {{ for(k in a) print k, a[k] }}\''
+        bash_command = f'echo "{TEXT}" | tr -d "[:punct:]" | tr "[:upper:]" "[:lower:]" | awk \'{{ for(i=1;i<=NF;i++) a[$i]++ }} END {{ for(k in a) print k, a[k] }}\''
         bash_output = run_bash(bash_command).split('\n')
         bash_output_dict = dict(line.split() for line in bash_output)
         bash_output_dict = {k: int(v) for k, v in bash_output_dict.items()}
-        assert bash_output_dict == count_words(text)
+        assert bash_output_dict == count_words(TEXT)
 
 @pytest.mark.skip(reason="Skips purposefully")
 def test_count_words_skipper():
@@ -133,7 +133,7 @@ def test_count_words_skipper():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert count_words(text) == ""
+        assert count_words(TEXT) == ""
 
 @pytest.mark.parametrize("name, input_text", test_cases, ids=test_ids)
 def test_all_count_words(name, input_text):
@@ -178,5 +178,5 @@ def test_corbeau_count_words():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        expected_le_corbeau = Counter(tokenize(text_le_corbeau))
-        assert count_words(text_le_corbeau) == expected_le_corbeau
+        expected_le_corbeau = Counter(tokenize(TEXT_LE_CORBEAU))
+        assert count_words(TEXT_LE_CORBEAU) == expected_le_corbeau
