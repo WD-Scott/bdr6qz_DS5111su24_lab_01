@@ -124,8 +124,6 @@ def count_words(input_text):
     #     word_counts[w] = 1 if w not in word_counts else word_counts[w] + 1
     word_counts = Counter(tokens)
 
-    return word_counts
-
 def run_bash(command):
     '''
     Run a bash command and return its output.
