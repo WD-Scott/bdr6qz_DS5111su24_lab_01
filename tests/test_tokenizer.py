@@ -28,7 +28,7 @@ Functions:
 import sys
 import os
 import warnings
-from pkg_bdr6qz import (tokenize, clean_text, text, text_list, text_le_corbeau, run_bash, read_file)
+from pkg_bdr6qz import (tokenize, clean_text, TEXT, text_list, TEXT_LE_CORBEAU, run_bash, read_file)
 import pytest
 books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))

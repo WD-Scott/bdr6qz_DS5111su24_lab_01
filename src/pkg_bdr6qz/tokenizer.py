@@ -37,9 +37,9 @@ import string
 import subprocess
 from collections import Counter
 
-text = "But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour."
+TEXT = "But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour."
 
-text_le_corbeau = "Mais le Corbeau, perché solitairement sur ce buste placide, parla ce seul mot comme si, son âme, en ce seul mot, il la répandait. Je ne proférai donc rien de plus: il n'agita donc pas de plume--jusqu'à ce que je fis à peine davantage que marmotter «D'autres amis déjà ont pris leur vol--demain il me laissera comme mes Espérances déjà ont pris leur vol.» Alors l'oiseau dit: «Jamais plus.»_"
+TEXT_LE_CORBEAU = "Mais le Corbeau, perché solitairement sur ce buste placide, parla ce seul mot comme si, son âme, en ce seul mot, il la répandait. Je ne proférai donc rien de plus: il n'agita donc pas de plume--jusqu'à ce que je fis à peine davantage que marmotter «D'autres amis déjà ont pris leur vol--demain il me laissera comme mes Espérances déjà ont pris leur vol.» Alors l'oiseau dit: «Jamais plus.»_"
 
 text_dict = {"but": 1, "the": 2, "raven": 1, "sitting": 1,
              "lonely": 1, "on": 1, "placid": 1, "bust": 1,
@@ -123,8 +123,6 @@ def count_words(input_text):
     # for w in tokens:
     #     word_counts[w] = 1 if w not in word_counts else word_counts[w] + 1
     word_counts = Counter(tokens)
-    
-    return word_counts
 
 def run_bash(command):
     '''
@@ -168,5 +166,5 @@ def read_file(file_path):
     str
         The contents of the file.
     '''
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()

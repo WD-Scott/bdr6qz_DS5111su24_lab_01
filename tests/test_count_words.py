@@ -29,7 +29,7 @@ import sys
 import os
 import warnings
 from collections import Counter
-from pkg_bdr6qz import (count_words, tokenize, run_bash, text, text_le_corbeau, text_dict, read_file)
+from pkg_bdr6qz import (count_words, tokenize, run_bash, TEXT, TEXT_LE_CORBEAU, text_dict, read_file)
 import pytest
 books_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'books'))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
