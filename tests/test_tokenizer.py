@@ -70,8 +70,8 @@ def test_tokenize():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert tokenize(text) == text_list
-        assert isinstance(tokenize(text), list), f"Tokenizer failed on sample text: {text}"
+        assert tokenize(TEXT) == text_list
+        assert isinstance(tokenize(TEXT), list), f"Tokenizer failed on sample text: {TEXT}"
         assert tokenize("864, 241, %(*") == ["864", "241"]
 
 @pytest.mark.xfail(reason="Fails purposefully")
@@ -91,7 +91,7 @@ def test_fail_tokenize():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert tokenize(text) == ["."]
+        assert tokenize(TEXT) == ["."]
 
 def test_bash_tokenize():
     """
@@ -109,8 +109,8 @@ def test_bash_tokenize():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        bash_output = run_bash(f'echo "{text}" | tr -d "[:punct:]" | tr "[:upper:]" "[:lower:]" | awk \'{{ for(i=1;i<=NF;i++) print $i }}\'').split()
-        assert bash_output == tokenize(text)
+        bash_output = run_bash(f'echo "{TEXT}" | tr -d "[:punct:]" | tr "[:upper:]" "[:lower:]" | awk \'{{ for(i=1;i<=NF;i++) print $i }}\'').split()
+        assert bash_output == tokenize(TEXT)
 
 @pytest.mark.skip(reason="Skips purposefully")
 def test_tokenize_skipper():
@@ -129,7 +129,7 @@ def test_tokenize_skipper():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert tokenize(text) == ""
+        assert tokenize(TEXT) == ""
 
 @pytest.mark.parametrize("name, input_text", test_cases, ids=test_ids)
 def test_all_tokenize(name, input_text):
@@ -174,5 +174,5 @@ def test_corbeau_tokenize():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        expected_le_corbeau = clean_text(text_le_corbeau).split()
-        assert tokenize(text_le_corbeau) == expected_le_corbeau
+        expected_le_corbeau = clean_text(TEXT_LE_CORBEAU).split()
+        assert tokenize(TEXT_LE_CORBEAU) == expected_le_corbeau
