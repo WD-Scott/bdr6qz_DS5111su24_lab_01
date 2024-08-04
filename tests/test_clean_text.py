@@ -71,7 +71,7 @@ def test_clean_text():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert clean_text(text) == "but the raven sitting lonely on the placid bust spoke only that one word as if his soul in that one word he did outpour"
+        assert clean_text(TEXT) == "but the raven sitting lonely on the placid bust spoke only that one word as if his soul in that one word he did outpour"
         assert clean_text("!!!") == ""
         assert clean_text("") == ""
 
@@ -92,7 +92,7 @@ def test_fail_clean_text():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert clean_text(text) == "BUT the raven sitting lonely on the placid bust spoke"
+        assert clean_text(TEXT) == "BUT the raven sitting lonely on the placid bust spoke"
 
 def test_bash_clean_text():
     """
@@ -110,7 +110,7 @@ def test_bash_clean_text():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert run_bash(f'echo "{text}" | tr -d "[:punct:]" | tr "[:upper:]" "[:lower:]"') == clean_text(text)
+        assert run_bash(f'echo "{TEXT}" | tr -d "[:punct:]" | tr "[:upper:]" "[:lower:]"') == clean_text(TEXT)
 
 @pytest.mark.skip(reason="Skips purposefully")
 def test_clean_text_skipper():
@@ -129,7 +129,7 @@ def test_clean_text_skipper():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        assert clean_text(text) == ""
+        assert clean_text(TEXT) == ""
 
 @pytest.mark.parametrize("name, input_text", test_cases, ids=test_ids)
 def test_all_clean_text(name, input_text):
@@ -174,5 +174,5 @@ def test_corbeau_clean_text():
     if sys.platform != "darwin" or sys.version_info[:2] != (3, 11):
         warnings.warn("Heads Up! This test has only been validated on macOS, Python 3.11.")
     else:
-        expected_le_corbeau = text_le_corbeau.translate(str.maketrans('', '', string.punctuation)).lower()
-        assert clean_text(text_le_corbeau) == expected_le_corbeau
+        expected_le_corbeau = TEXT_LE_CORBEAU.translate(str.maketrans('', '', string.punctuation)).lower()
+        assert clean_text(TEXT_LE_CORBEAU) == expected_le_corbeau
