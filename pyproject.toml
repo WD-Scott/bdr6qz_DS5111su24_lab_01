@@ -4,6 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bdr6qz"
+#% when I try and load the package pip succeeds.  Pip lists shows the package, however when I try to 
+# import it it can't find it.  I think your directory name and the package name have to match.
+# Is this working for you?
 version = "0.0.1"
 authors = [
     { name = "Wyatt Scott", email = "bdr6qz@virginia.edu" },
