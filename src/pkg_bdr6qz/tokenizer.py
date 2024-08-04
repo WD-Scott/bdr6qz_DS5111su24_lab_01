@@ -167,5 +167,8 @@ def read_file(file_path):
     str
         The contents of the file.
     '''
+    #%CMT file paths are acutally a good place for asserts.  Aside from just checking a path is a string
+    # you might have to make sure they are not files.  I usually check the path is acutally a directory, or
+    # simply ends with /.   If it's a file path, then you may even want to check .txt vs .pdf etc.
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
